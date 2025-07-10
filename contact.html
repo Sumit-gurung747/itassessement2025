@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+      color: #f5f5f5;
+      line-height: 1.6;
+      padding-top: 80px;
+    }
+
+    header {
+      background: #1a1a2a;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffa63b;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      background: url('asusrog.jpg') center/cover no-repeat;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .overlay h1 {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #1e1e2f;
+    }
+
+    .contact-section h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #ffa63b;
+    }
+
+    .contact-section p {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    .contact-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .contact-card {
+      border: 2px solid #ffa63b;
+      border-radius: 8px;
+      padding: 30px 20px;
+      max-width: 400px;
+      background: #2a2a3d;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .contact-card h3.orange {
+      color: #ffa63b;
+      margin-bottom: 15px;
+    }
+
+    .contact-card p {
+      color: #ccc;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .phone-icon {
+      font-size: 24px;
+      color: #ffa63b;
+    }
+
+    .numbers p,
+    .numbers strong {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .numbers strong {
+      color: #fff;
+    }
+
+    .store-section {
+      background-color: #2f4552;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .store-section h2 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      color: #ffa63b;
+    }
+
+    .store-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
+    }
+
+    .store-details .icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .store-details p {
+      font-size: 16px;
+    }
+
+    .map-contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 40px;
+      border-top: 3px solid #ffa63b;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .contact-details {
+      flex: 1 1 300px;
+    }
+
+    .contact-details h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffa63b;
+    }
+
+    .contact-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .contact-details li {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .contact-details .icon {
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 20px;
+      color: #ffa63b;
+    }
+
+    .map-container {
+      flex: 2 1 500px;
+      min-width: 300px;
+    }
+
+    .map-link {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: underline;
+      color: #ffa63b;
+    }
+
+    .contact-info:last-of-type {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      background: #1e1e2f;
+      padding: 40px 30px;
+      border-radius: 10px;
+      margin-top: 60px;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      background-color: #2a2a3d;
+      border: 1px solid #444;
+      color: #fff;
+    }
+
+    .contact-form button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #ffa63b;
+      color: #1a1a2a;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .social-icons span {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .contact-info,
+      .store-details,
+      .map-contact-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .info, .contact-form {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="overlay">
+      <h1>Follow The<br>Innovation</h1>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Reach Our Expert Team</h2>
+    <p>We would love to hear from you. Here are some ways you can contact us.</p>
+
+    <div class="contact-boxes">
+      <div class="contact-card">
+        <h3 class="orange">Sales Expert</h3>
+        <p>Talk to our experts if you have any confusion about products. Our experts can guide you on the products that work best for you.</p>
+        <div class="contact-info">
+          <div class="phone-icon">📞</div>
+          <div class="numbers">
+            <p>01-5327800</p>
+            <p>or</p>
+            <strong>9802870861</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3 class="orange">Customer Service</h3>
+        <p>Our customer service team is willing to assist with any queries.</p>
+        <div class="contact-info">
+          <div class="phone-icon">📞</div>
+          <div class="numbers">
+            <p>9802356165</p>
+            <p>or</p>
+            <strong>9858426707</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="store-section">
+    <h2>Come and explore our Putalisadak (Kathmandu) Store!</h2>
+    <div class="store-details">
+      <div class="store-hours">
+        <div class="icon">⏲</div>
+        <p>We're Open 10:30 AM - 07:00 PM (Sunday - Friday)<br>
+        11:30 AM - 6:00 PM (Saturday)</p>
+      </div>
+      <div class="map-link">
+        <div class="icon">📍</div>
+        <p>Get Address and Map Location</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-contact-section">
+    <div class="contact-details">
+      <h2>Contact Information</h2>
+      <ul>
+        <li><span class="icon">📞</span> 01-5327800</li>
+        <li><span class="icon">📍</span> Putalisadak - 28, Kathmandu, Nepal</li>
+        <li><span class="icon">✉️</span> sales@mudita.com.np</li>
+      </ul>
+    </div>
+
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.298415293634!2d85.31691321506022!3d27.70753718279178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb199747e87e8d%3A0x9b5f20e84aafe170!2sMudita%20Store!5e0!3m2!1sen!2snp!4v1655124109131!5m2!1sen!2snp" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <a class="map-link" href="https://maps.google.com?q=Mudita+Store+Putalisadak" target="_blank">Take me to Mudita Store</a>
+    </div>
+  </section>
+
+  <section class="contact-info">
+    <div class="info">
+      <h3>Address</h3>
+      <p>Putalisadak - 28<br>Kathmandu, Nepal</p>
+      <h3>Phone</h3>
+      <p>+977 9868478903</p>
+      <h3>Email</h3>
+      <p>sumitgurung99@email.com</p>
+      <h3>Working Hours</h3>
+      <p>Mon - Fri: 9am - 6pm</p>
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <span>🔵</span>
+        <span>⚫</span>
+        <span>🔴</span>
+      </div>
+    </div>
+
+    <form class="contact-form">
+      <h3>Comment</h3>
+      <label>Name</label>
+      <input type="text" required/>
+      <label>Email</label>
+      <input type="email" required/>
+      <label>Description</label>
+      <textarea rows="5"></textarea>
+      <button type="submit">SUBMIT</button>
+    </form>
+  </section>
+
+  <div class="text-center">
+    <small>&copy; 2025 Responsive. All Rights Reserved</small>
+  </div>
+</body>
+</html>

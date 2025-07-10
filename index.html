@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laptop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f0f1a;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding-top: 70px; /* Prevent content from hiding behind fixed header */
+    }
+
+    header {
+      background: #1e1e2f;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffa63b;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .hero video {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .video-wrapper {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 100%;
+      margin: 40px auto;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      text-align: center;
+    }
+
+    .slide img {
+      width: 60%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+
+    .slider-nav span {
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 8px 14px;
+      font-size: 18px;
+      border-radius: 50%;
+    }
+
+    .slider-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .slider-dots span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: #555;
+      margin: 0 4px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .slider-dots .active {
+      background: #fff;
+    }
+
+    .content {
+      padding: 30px 20px;
+    }
+
+    .product-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .product {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .product:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .product img {
+      height: 50vh;
+      width: auto;
+      border-radius: 8px;
+      object-fit: contain;
+      margin: 0 100px;
+    }
+
+    .image-box {
+      background-color: #1e1e2f;
+      padding: 20px;
+      border: 1px solid #444;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .product p {
+      font-size: 1.3rem;
+      flex: 1;
+      padding: 0 100px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 60px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .info {
+      width: 45%;
+      padding-left: 100px;
+    }
+
+    .contact-form {
+      width: 45%;
+      padding-right: 100px;
+    }
+
+    .contact-form h3,
+    .info h3 {
+      margin-top: 15px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      background: #2a2a3d;
+      color: #fff;
+      border: none;
+    }
+
+    .contact-form button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #444;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .social-icons span {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    .text-center {
+      text-align: center;
+      padding: 20px;
+      background: #1e1e2f;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      .product {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .product p {
+        padding: 0 10px;
+      }
+
+      .product img {
+        width: 80%;
+        height: auto;
+      }
+
+      .contact-info {
+        flex-direction: column;
+      }
+
+      .info,
+      .contact-form {
+        width: 100%;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="video-wrapper">
+      <video autoplay muted loop playsinline>
+        <source src="laptop.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide"><img src="Sliderimg1.png" alt="Laptop 1"></div>
+        <div class="slide"><img src="slider2img.png" alt="Laptop 2"></div>
+        <div class="slide"><img src="slider3img.png" alt="Laptop 3"></div>
+      </div>
+      <div class="slider-nav">
+        <span onclick="prevSlide()">❮</span>
+        <span onclick="nextSlide()">❯</span>
+      </div>
+      <div class="slider-dots" id="dots"></div>
+    </div>
+  </section>
+
+  <main class="content">
+    <section class="product-section">
+      <div class="product">
+        <div class="image-box">
+          <a href="shop.html"><img src="Acer-Nitro-V-15-Laptop.webp" alt="Product 1" /></a>
+        </div>
+        <p>Acer laptops are known for their performance, features, and affordability, with models like the Swift and Aspire series offering different functionalities and designs.</p>
+      </div>
+      <div class="product">
+        <div class="image-box">
+          <a href="shop.html"><img src="Asus-ROG-Strix-G16.webp" alt="Product 2" /></a>
+        </div>
+        <p>ASUS laptops offer high-quality ultrabooks, gaming machines, and productivity laptops, all built with reliable performance and innovation.</p>
+      </div>
+      <div class="product">
+        <div class="image-box">
+          <a href="shop.html"><img src="MSI.jpg" alt="Product 3" /></a>
+        </div>
+        <p>MSI laptops specialize in gaming and high-end productivity with bold designs, powerful components, and advanced cooling systems.</p>
+      </div>
+    </section>
+
+    <section class="contact-info">
+      <div class="info">
+        <h3>Address</h3>
+        <p>Putalisadak - 28<br>Kathmandu, Nepal</p>
+        <h3>Phone</h3>
+        <p>+977 9868478903</p>
+        <h3>Email</h3>
+        <p>sumitgurung99@email.com</p>
+        <h3>Working Hours</h3>
+        <p>Mon - Fri: 9am - 6pm</p>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <span>🔵</span>
+          <span>⚫</span>
+          <span>🔴</span>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <h3>Comment</h3>
+        <label>Name</label>
+        <input type="text" required />
+        <label>Email</label>
+        <input type="email" required />
+        <label>Description</label>
+        <textarea rows="5"></textarea>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="text-center">
+    <small>&copy; 2025 Responsive. All Rights Reserved</small>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const dotsContainer = document.getElementById('dots');
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
+
+    function createDots() {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.onclick = () => goToSlide(i);
+        dot.classList.toggle('active', i === currentIndex);
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDots() {
+      const dots = dotsContainer.querySelectorAll('span');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      updateDots();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      goToSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      goToSlide(currentIndex);
+    }
+
+    createDots();
+    updateDots();
+  </script>
+</body>
+</html>

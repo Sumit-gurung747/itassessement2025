@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+     background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+      padding: 20px;
+    }
+
+    header {
+      background-color: #2a2a3d;
+      padding: 10px 0;
+      margin-bottom: 40px; 
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(250, 250, 250);
+      font-weight: bold;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .card {
+     background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #fffdfd;
+    }
+
+    .price {
+      color: green;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .footer-box {
+      background-color: #2a2a3d;
+      color: #f0f0f0;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(78, 60, 60, 0.05);
+      margin-top: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      background-color: #2a2a3d;
+      margin-top: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #333;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .social-icons span {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        flex-direction: column;
+      }
+
+      
+    }
+
+    .card {
+  position: relative;
+  overflow: hidden;
+}
+
+.details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Reveal on hover */
+.card:hover .details {
+  transform: translateY(0);
+}
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <nav> 
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ASUS Products -->
+  <div class="grid">
+    <div class="card" data-title="ASUS ROG Strix G18" data-price="320000" data-img="asusg18.jpg">
+      <img src="asusg18.jpg" alt="ASUS G18">
+      <div class="card-content">
+        <div class="title">ASUS ROG Strix G18</div>
+        <div class="price">Rs.320,000.00</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i9</p>
+    <p>GPU: RTX 4090</p>
+    <p>RAM: 32 GB • Storage: 2 TB SSD</p>
+  </div>
+    </div>
+    <div class="card" data-title="ASUS TUF A15 FA506" data-price="320000" data-img="asustuf.webp">
+      <img src="asustuf.webp" alt="ASUS TUF">
+      <div class="card-content">
+        <div class="title">ASUS TUF A15 FA506</div>
+        <div class="price">Rs.159,999</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i7</p>
+    <p>GPU: RTX 3060</p>
+    <p>RAM: 32 GB • Storage: 1 TB SSD</p>
+  </div>
+    </div>
+    <div class="card" data-title="ASUS ROG Zephyrus Duo 15" data-price="320000" data-img="asusrog.jpg">
+      <img src="asusrog.jpg" alt="ASUS Duo">
+      <div class="card-content">
+        <div class="title">ASUS ROG Zephyrus Duo 15</div>
+        <div class="price">Rs.163,999</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i9</p>
+    <p>GPU: RTX 4090</p>
+    <p>RAM: 16 GB • Storage: 1 TB SSD</p>
+  </div>
+    </div>
+  </div>
+
+  <!-- MSI Products -->
+  <div class="grid">
+    <div class="card" data-title="MSI Summit E13" data-price="17200" data-img="msi-summit.webp">
+      <img src="msi-summit.webp" alt="MSI Summit">
+      <div class="card-content">
+        <div class="title">MSI Summit E13</div>
+        <div class="price">Rs.172,000.00</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i9</p>
+    <p>GPU: RTX 3060</p>
+    <p>RAM: 32 GB • Storage: 1 TB SSD</p>
+  </div>
+    </div>
+<div class="card" data-title="MSI SWORD 16hx" data-price="320000" data-img="msisword.jpg">
+  <img src="msisword.jpg" alt="MSI Sword">
+  <div class="card-content">
+    <div class="title">MSI SWORD 16hx</div>
+    <div class="price">Rs.85,599</div>
+  </div>
+  <!-- Hidden on hover -->
+  <div class="details">
+    <p>CPU: Intel Core i7</p>
+    <p>GPU: RTX 3060</p>
+    <p>RAM: 8 GB • Storage: 512 GB SSD</p>
+  </div>
+</div>
+    
+    <div class="card" data-title="MSI Cyborg 15 A12UCX" data-price="320000" data-img="msi-cyborg.webp">
+      <img src="msi-cyborg.webp" alt="MSI Cyborg">
+      <div class="card-content">
+        <div class="title">MSI Cyborg 15 A12UCX</div>
+        <div class="price">Rs.64,000</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i7</p>
+    <p>GPU: RTX 3060</p>
+    <p>RAM: 16 GB • Storage: 512 GB SSD</p>
+  </div>
+    </div>
+
+  </div>
+  
+
+  <!-- Acer Products -->
+  <div class="grid">
+    <div class="card" data-title="Acer Nitro 5" data-price="320000" data-img="acernitro5.webp">
+      <img src="acernitro5.webp" alt="Acer Nitro 5">
+      <div class="card-content">
+        <div class="title">Acer Nitro 5</div>
+        <div class="price">Rs.89,999</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i5</p>
+    <p>GPU: RTX 3090</p>
+    <p>RAM: 16 GB • Storage: 1 TB SSD</p>
+  </div>
+    </div>
+    <div class="card" data-title="Acer Predator Helios" data-price="320000" data-img="acer-predator.webp">
+      <img src="acer-predator.webp" alt="Acer Predator">
+      <div class="card-content">
+        <div class="title">Acer Predator Helios</div>
+        <div class="price">Rs.78,999</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i7</p>
+    <p>GPU: RTX 4090</p>
+    <p>RAM: 16 GB • Storage: 512 GB SSD</p>
+  </div>
+    </div>
+    <div class="card" data-title="Acer Aspire 7" data-price="320000" data-img="acer-aspire.webp">
+      <img src="acer-aspire.webp" alt="Acer Aspire">
+      <div class="card-content">
+        <div class="title">Acer Aspire 7</div>
+        <div class="price">Rs.78,999</div>
+      </div>
+        <div class="details">
+    <p>CPU: Intel Core i5</p>
+    <p>GPU: RTX 3020</p>
+    <p>RAM: 8 GB • Storage: 1 TB SSD</p>
+  </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Box -->
+  <footer class="footer-box">
+    <section class="contact-info">
+      <div class="info">
+        <h3>Address</h3>
+        <p>Putalisadak - 28<br>Kathmandu, Nepal</p>
+
+        <h3>Phone</h3>
+        <p>+977 9868478903</p>
+
+        <h3>Email</h3>
+        <p>sumitgurung99@email.com</p>
+
+        <h3>Working Hours</h3>
+        <p>Mon - Fri: 9am - 6pm</p>
+
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <span>🔵</span>
+          <span>⚫</span>
+          <span>🔴</span>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <h3>Comment</h3>
+        <label>Name</label>
+        <input type="text" required/>
+        <label>Email</label>
+        <input type="email" required/>
+        <label>Description</label>
+        <textarea rows="5"></textarea>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </section>
+
+    <div class="text-center">
+      <small>&copy; 2025 Responsive. All Rights Reserved</small>
+    </div>
+  </footer>
+  <script>
+  // Add to cart on click
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.dataset.title;
+      const price = parseInt(card.dataset.price);
+      const img = card.dataset.img;
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Check if item already in cart
+      const existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, img, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${title} added to cart.`);
+    });
+  });
+</script>
+
+
+</body>
+</html>

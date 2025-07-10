@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #f5f5f5;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #0f0f1a, #1e1e2f);
+      padding-top: 80px; /* Adjusted for fixed header */
+    }
+
+    /* Header Navigation */
+    header {
+      background: #1a1a2a;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ff99;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      background: url('asusrog.jpg') center/cover no-repeat;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+    }
+
+    .overlay h1 {
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    /* Content Section */
+    .content {
+      background-color: #1e1e2f;
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      text-align: center;
+      color: #f0f0f0;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    }
+
+    .content p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    /* Why Acer Section */
+    .why-acer {
+      background-color: #1e1e2f;
+      padding: 60px 20px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #f0f0f0;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    }
+
+    .why-acer h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #ffffff;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature {
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .feature img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-size: 1.75rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .feature p {
+      font-size: 1rem;
+      color: #cccccc;
+      line-height: 1.5;
+    }
+
+    /* New Product Section */
+    .product-section {
+      background-color: #1e1e2f;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      color: #f0f0f0;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+    }
+
+    .product-grid {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .product-card {
+      background-color: #2c2c3e;
+      color: #eee;
+      flex: 1 1 250px;
+      max-width: 350px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .product-card-content {
+      padding: 20px;
+    }
+
+    .product-card-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .product-card-content p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #cccccc;
+    }
+
+    .learn-more {
+      color: #00ff99;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .learn-more:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer Box */
+    .footer-box {
+      background-color: #2a2a3b;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(78, 60, 60, 0.05);
+      margin-top: 60px;
+      color: #ddd;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      background-color: #1a1a2a;
+      border: 1px solid #444;
+      color: #eee;
+    }
+
+    .contact-form button {
+      margin-top: 15px;
+      padding: 10px 16px;
+      background: #00ff99;
+      color: #000;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .text-center {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .social-icons span {
+      font-size: 22px;
+      margin-right: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      .features, .product-grid {
+        gap: 30px;
+      }
+      .contact-info {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features, .product-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .overlay h1 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay">
+      <h1>Follow The<br>Innovation</h1>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content">
+    <p>
+      We believe in education because we believe in tomorrow. We know that when supported by empowering tools, only the sky is the limit for students and teachers.
+    </p>
+    <p>
+      Acer’s education devices aim to engage and empower students and teachers of all ages in a secure environment, whether teaching, learning, or collaborating.
+    </p>
+  </section>
+
+  <!-- Why Acer Section -->
+  <section class="why-acer">
+    <h2>Why US?</h2>
+    <div class="features">
+      <div class="feature">
+        <img src="onpage-writing.png" alt="Designed for schools icon">
+        <h3>Designed for schools</h3>
+        <p>Affordable, rugged, secure and simple to deploy. Our devices are designed to enable teachers to unlock every student's potential with a tailored portfolio.</p>
+      </div>
+      <div class="feature">
+        <img src="eco.png" alt="Reliable ecosystem icon">
+        <h3>Reliable ecosystem</h3>
+        <p>With the best expertise and tools from trusted channel and alliance partners, our network of partnerships and award-winning service & support are constantly expanding according to schools' ever-changing needs.</p>
+      </div>
+      <div class="feature">
+        <img src="university-campus.png" alt="Innovative campus solutions icon">
+        <h3>Innovative campus solutions</h3>
+        <p>A tailored portfolio and service program that keep up with the multiple demands of campuses shape an inspiring and secure environment where the leaders of tomorrow can thrive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Product Section -->
+  <section class="product-section">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="HIHIH.png" alt="Rugged Solutions">
+        <div class="product-card-content">
+          <h3>Rugged Solutions for All Classrooms</h3>
+          <p>Stay focused on learning in the classroom with these rugged laptops.</p>
+          <a href="#" class="learn-more">Learn More</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="HOHHO.png" alt="Windows Classroom">
+        <div class="product-card-content">
+          <h3>Windows Classroom</h3>
+          <p>The Windows 11 upgrade for education has all the tools you need to help students unlock their full potential.</p>
+          <a href="#" class="learn-more">Learn More</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="HEHEH.png" alt="ChromeOS Classroom">
+        <div class="product-card-content">
+          <h3>ChromeOS Classroom</h3>
+          <p>Equip your school with Chromebooks for education—versatile, easy-to-manage, and secure.</p>
+          <a href="#" class="learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Box -->
+  <footer class="footer-box">
+    <section class="contact-info">
+      <div class="info">
+        <h3>Address</h3>
+        <p>Putalisadak - 28<br>Kathmandu, Nepal</p>
+        <h3>Phone</h3>
+        <p>+977 9868478903</p>
+        <h3>Email</h3>
+        <p>sumitgurung99@email.com</p>
+        <h3>Working Hours</h3>
+        <p>Mon - Fri: 9am - 6pm</p>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <span>🔵</span>
+          <span>⚫</span>
+          <span>🔴</span>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <h3>Comment</h3>
+        <label>Name</label>
+        <input type="text" required/>
+        <label>Email</label>
+        <input type="email" required/>
+        <label>Description</label>
+        <textarea rows="5"></textarea>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </section>
+
+    <div class="text-center">
+      <small>&copy; 2025 Responsive. All Rights Reserved</small>
+    </div>
+  </footer>
+
+</body>
+</html>
